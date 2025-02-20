@@ -36,10 +36,10 @@ func (h *Handler) ChangeUsername(e echo.Context) error {
 	}
 	_, err = h.db.ChangeUsername(e.Request().Context(), db.ChangeUsernameParams{
 		Username: username,
-		Ip: &ip,
+		Ip:       &ip,
 	})
 	if err != nil {
 		return err
 	}
-	return h.render(e, http.StatusOK,vc.AlertSuccess("Username changed successfully!"))
+	return h.render(e, http.StatusOK, vc.AlertSuccess("Username changed successfully!"))
 }
