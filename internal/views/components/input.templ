@@ -1,0 +1,16 @@
+package components
+
+templ InputUsername(name string) {
+	<input
+		id={ name }
+		type="input"
+		name={ name }
+		class="input validator"
+		required
+		placeholder="Aboba_123"
+		pattern="[A-Za-z][A-Za-z0-9\-]*"
+		minlength="3"
+		maxlength="30"
+		title="Only letters, numbers or dash"
+	/>
+}

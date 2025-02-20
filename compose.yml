@@ -1,0 +1,27 @@
+services:
+  app:
+    container_name: app
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_HOST=db
+    env_file:
+      - .env
+    restart: always
+  
+  db:
+    container_name: db
+    image: postgres:17
+    env_file:
+      - .env
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+volumes:
+  dbdata:

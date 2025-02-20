@@ -1,0 +1,13 @@
+package views
+
+import vc "github.com/rem-aster/goth-template/internal/views/components"
+
+templ Index(username string) {
+	@vc.Base() {
+		@vc.HeroDefault() {
+			@vc.Hello(username)
+            @vc.FormUsername()
+			@vc.AlertContainer()
+		}
+	}
+}
